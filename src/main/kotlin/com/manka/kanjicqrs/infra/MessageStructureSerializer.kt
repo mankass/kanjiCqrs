@@ -2,13 +2,14 @@ package com.manka.kanjicqrs.infra
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.apache.kafka.common.serialization.Serializer
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
 @Component
 class MessageStructureSerializer: Serializer<MessageStructure> {
-    private val objectMapper = ObjectMapper()
+    private val objectMapper = jacksonObjectMapper()
 
     private val logger = LoggerFactory.getLogger(MessageStructureSerializer::class.java)
     override fun serialize(p0: String?, data: MessageStructure?): ByteArray {

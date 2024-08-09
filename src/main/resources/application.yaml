@@ -4,9 +4,9 @@ spring:
   kafka:
     consumer:
       group-id: my-group
-      value-deserializer: com.manka.kanjicrs.infra.MessageStructureSerializer
+      value-deserializer: com.manka.kanjicqrs.infra.MessageStructureDeserializer
     producer:
-      value-serializer: com.manka.kanjicrs.infra.MessageStructureDeserializer
+      value-serializer: com.manka.kanjicqrs.infra.MessageStructureSerializer
     bootstrap-servers: localhost:29092
   datasource:
     driver-class-name: org.postgresql.Driver
