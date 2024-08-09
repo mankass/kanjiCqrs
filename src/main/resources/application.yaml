@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: kanjiCQRS
+  kafka:
+    consumer:
+      group-id: my-group
+      value-deserializer: com.manka.kanjicrs.infra.MessageStructureSerializer
+    producer:
+      value-serializer: com.manka.kanjicrs.infra.MessageStructureDeserializer
+    bootstrap-servers: localhost:29092
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 16
+      auto-commit: false
+      connection-timeout: 1000
+      idle-timeout: 60000
+      minimum-idle: 2
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      hibernate.jdbc.lob.non_contextual_creation: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true

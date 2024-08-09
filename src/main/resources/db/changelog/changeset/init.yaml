@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-deck
+      author: Dan
+      changes:
+        - createSequence:
+            sequenceName: word_sequence
+            incrementBy: 20
+        - createTable:
+            tableName: word-and-stat
+            columns:
+              - column:
+                  name: word_id
+                  type: varchar(200)
+              - column:
+                 name: id
+                 type: UUID
+                 constraints:
+                   primaryKey: true
+                   primaryKeyName: word_and_stat_pkey
+                   nullable: false
+              - column:
+                  name: wrong_attempts
+                  type: int
+              - column:
+                  name: correct_attempts
+                  type: int
+              - column:
+                  name: last_using_date
+                  type: timestamp
+
+
+
+

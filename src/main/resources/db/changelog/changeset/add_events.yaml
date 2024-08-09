@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-events
+      author: Dan
+      changes:
+        - createTable:
+            tableName: events
+            columns:
+              - column:
+                  name: aggregate_id
+                  type: VARCHAR(36)
+              - column:
+                  name: event_type
+                  type: varchar(200)
+              - column:
+                  name: payload
+                  type: JSON
+              - column:
+                  name: creation_timestamp
+                  type: timestamp
+              - column:
+                  name: id
+                  type: BIGINT
