@@ -13,10 +13,15 @@ import java.util.UUID
 @Entity
 @Table(name = "word-and-stat")
 class WordAndStat(
+
     val wordId: String,
+
     val wrongAttempts: Int,
+
     val correctAttempts: Int,
+
     var lastUsingDate: Timestamp,
+
     @Id
     @SequenceGenerator(
         name = "word_seq",

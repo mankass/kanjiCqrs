@@ -21,3 +21,6 @@ databaseChangeLog:
               - column:
                   name: id
                   type: BIGINT
+              - column:
+                  name: dtype
+                  type: VARCHAR(31)
